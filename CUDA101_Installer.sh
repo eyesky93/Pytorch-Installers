@@ -30,8 +30,9 @@ sudo apt-get update
 sudo apt-get install cuda
 export PATH="/usr/local/cuda-10.1/bin:$PATH"
 export LD_LIBRARY_PATH="/usr/local/cuda-10.1/lib64:$LD_LIBRARY_PATH"
-echo 'export PATH="/usr/local/cuda-10.1/bin:$PATH"' >> /home/$USER/.bashrc
-echo 'export LD_LIBRARY_PATH="/usr/local/cuda-10.1/lib64:$LD_LIBRARY_PATH"' >> /home/$USER/.bashrc
+echo 'export PATH="/usr/local/cuda-10.1/bin:$PATH"' >> ~/.bashrc
+echo 'export LD_LIBRARY_PATH="/usr/local/cuda-10.1/lib64:$LD_LIBRARY_PATH"' >> ~/.bashrc
+source ~/.bashrc
 #Confirming Installation
 cuda-install-samples-10.1.sh <dir>
 cat /proc/driver/nvidia/version #Check if the driver version is correct
