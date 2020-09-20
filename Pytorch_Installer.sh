@@ -38,7 +38,7 @@ conda install -y -c pytorch magma-cuda101	#Replace with a different version if n
 git clone --recursive https://github.com/pytorch/pytorch
 cd pytorch
 export CMAKE_PREFIX_PATH=${CONDA_PREFIX:-"$(dirname $(which conda))/../"}
-export CUDA_ARCH_LIST = "$Cuda_CC"
+export CUDA_ARCH_LIST="$Cuda_CC"
 export PYTORCH_BUILD_VERSION=$Python_Version
 export PYTORCH_BUILD_NUMBER=1
 export CUDA_HOME=/usr/local/cuda
