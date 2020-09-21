@@ -24,7 +24,8 @@ then
 fi
 #Use after installing the appropriate CUDA toolkit and Cudnn
 Cuda_CC=3.0	#Your GPU's cuda compute capability
-Python_Version=1.6.0
+Pytorch_Version=1.6.0
+Torchvision_Version=0.7.0
 #Clearing Conflicting Packages
 conda remove -y --force-remove magma-cuda
 conda remove -y --force-remove cudatoolkit
@@ -39,7 +40,7 @@ git clone --recursive https://github.com/pytorch/pytorch
 cd pytorch
 export CMAKE_PREFIX_PATH=${CONDA_PREFIX:-"$(dirname $(which conda))/../"}
 export CUDA_ARCH_LIST="$Cuda_CC"
-export PYTORCH_BUILD_VERSION=$Python_Version
+export PYTORCH_BUILD_VERSION=$Pytorch_Version
 export PYTORCH_BUILD_NUMBER=1
 export CUDA_HOME=/usr/local/cuda
 export CUDNN_LIB_DIR=/usr/local/cuda
@@ -47,12 +48,16 @@ export CUDNN_LIB_DIR=/usr/local/cuda
 Original="supported_arches = \["
 New="supported_arches = \[\'$Cuda_CC\', "
 sed -i "s:$Original:$New:" torch/utils/cpp_extension.py
+echo Building Pytorch
 python setup.py build --cmake
+echo Installing Pytorch
 python setup.py install
 cd ..
 #rm -rf pytorch
 git clone --recursive https://github.com/pytorch/vision
 cd vision
+echo Installing Torchvision
+export BUILD_VERSION=$Torchvision_Version
 python setup.py install
 cd ..
 #rm -rf vision
