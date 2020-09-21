@@ -6,3 +6,4 @@
 5. The pytorch installation should be in the enviroment folder and if you're using Pycharm then use it's terminal.
 6. The CUDA and CuDNN scripts should be in /Downloads/
 7. Please note I didn't include Clang installation. If you want to build Clang++ and install it I recommed doing so withou GUI. It demands a lot of RAM and you can do so by pressing CTRL + ALT + F2 at the loging screen.
+8. The Pytorch Installer script was completely working. CUDA and CuDNN were not checked since they can take a while and it might mess up the pytorch installation.
